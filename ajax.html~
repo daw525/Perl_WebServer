@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>David's JavaScript Test</title>
+<script>	
+
+function ajax() {
+	var page = document.getElementById("tb").value;
+	var xmlhttp;
+	if (window.XMLHttpRequest) {
+		xmlhttp=new XMLHttpRequest();
+	} else {
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function() {
+		if ( (xmlhttp.readyState==4) && (xmlhttp.status==200) ) {
+			alert(xmlhttp.responseText);
+		}
+	}
+	xmlhttp.open("GET","http://127.0.0.1/"+page,true);
+	xmlhttp.send();
+}
+function func() {
+	var colors = ['red', 'green', 'white', 'yellow'];
+	var s = document.getElementById("tb").value;
+	for (col in colors) {	;
+		if (s==colors[col]) {
+			document.getElementById("bo").style.backgroundColor=s;		
+		}
+	}
+	document.getElementById("tb").value="";
+}
+function fun() {
+	var col = document.getElementById("sel").value;
+	document.getElementById("bo").style.backgroundColor=col;
+}
+
+</script>
+</head>
+<body>
+<div id="bo">
+<h1>David's JavaScript Test</h1>
+<input type="text" id="tb"></input>
+<input type="button" id="b" value="Press me" onclick="func()"></input>
+<input type="button" id="b2" value="AJAX" onclick="ajax()"></input>
+<select id="sel" onchange="fun()">
+<option value="white">white</option>
+<option value="red">red</option>
+<option value="green">green</option>
+<option value="yellow">yellow</option>
+</select>
+<a href="#a1">Goto Anchor 1</a>
+<p>
+some<br>
+text<br>
+here<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<a name="a1">Anchor 1</a>
+<p>
+some 
+text 
+here
+</p>
+</div>
+</body>
+</html>
